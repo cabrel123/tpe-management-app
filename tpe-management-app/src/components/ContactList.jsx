@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import ContactForm from './ContactForm';
 
 class ContactList extends Component {
   constructor(props) {
@@ -35,6 +36,8 @@ class ContactList extends Component {
             </li>
           ))}
         </ul>
+        <h2>---------------------------------------------------------------------</h2>
+        <ContactForm />
       </div>
     );
   }
