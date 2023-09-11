@@ -22,9 +22,9 @@ router.get('/categories', function (req, res) {
 })
 
 // Routes
-// app.use('/categories', require('./routes/categories'));
+ app.use('/categories', require('./routes/categories'));
 // app.use('/tpe-accounts', require('./routes/tpeAccounts'));
-// app.use('/contacts', require('./routes/contacts'));
+ app.use('/contacts', require('./routes/contacts'));
 
 router.get('/', function (req, res, next) {
 	res.render('index', { title: 'API - React intermédiaire' })

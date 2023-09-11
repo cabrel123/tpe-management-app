@@ -5,7 +5,7 @@ const router = express.Router();
 const Contacts = require('../models/Contacts');
 
 // Route pour créer un nouveau contact
-router.post('/', (req, res) => {
+router.post('/contacts', (req, res) => {
   const newContact = new Contacts({
     name: req.body.name,
     phoneNumber: req.body.phone,

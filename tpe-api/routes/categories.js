@@ -5,7 +5,7 @@ const router = express.Router();
 const Category = require('../models/Category');
 
 // Route pour créer une nouvelle catégorie
-router.post('/', (req, res) => {
+router.post('/categories', (req, res) => {
   const newCategory = new Category({
     name: req.body.name,
   });
