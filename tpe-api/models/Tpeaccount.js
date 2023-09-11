@@ -16,11 +16,11 @@ const tpeaccountSchema = new mongoose.Schema({
     required: true,
   },
   categoryId: {
-    type: Int32,
+    type: String,
     required: true,
   },
   balance: {
-    type: Int32,
+    type: String,
     required: false,
   },
 });

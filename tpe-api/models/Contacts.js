@@ -11,13 +11,13 @@ const customeraccountSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  email: {
+  profession: {
     type: String,
-    required: true,
+    required: false,
   },
-  tpeaccount_id: {
-    type: Int32,
-    required: true,
+  region: {
+    type: String,
+    required: false,
   },
 });
 
