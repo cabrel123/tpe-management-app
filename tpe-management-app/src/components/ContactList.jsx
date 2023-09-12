@@ -12,10 +12,16 @@ class ContactList extends Component {
   componentDidMount() {
     // Appeler l'API pour récupérer la liste des contacts
 
-    fetch('http://localhost:3000/contacts')
+    fetch('http://127.0.0.1:3000/contacts')
       .then(response => response.json())
       .then(data => {
-        this.setState({ contacts: data });
+        console.log(data);
+        if (data.contacts.length === 0) {
+          return null;
+        }else{
+          this.setState({ contacts: data.contacts });
+        }
+        
       })
       .catch(error => console.error('Erreur lors de la récupération des contacts :', error));
   }
@@ -28,9 +34,9 @@ class ContactList extends Component {
         <h2>Liste des Contacts Clients</h2>
         <ul>
           {contacts.map(contact => (
-            <li key={contact.name}>
+            <li key={contact._id}>
               <strong>Nom:</strong> {contact.name}<br />
-              <strong>Numéro de Téléphone:</strong> {contact.phoneNumber}<br />
+              <strong>Numéro de Téléphone:</strong> {contact.phone}<br />
               <strong>Profession:</strong> {contact.profession}<br />
               <strong>Région:</strong> {contact.region}<br />
             </li>

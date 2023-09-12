@@ -76,6 +76,7 @@ justify-content: space-between!important;
                         <NavList><Link className='navlink' to={'/login'}>Connexion</Link></NavList>
                         <NavList><Link className='navlink' to={'/dashboard'}>Admin dashboard</Link></NavList>
                         <NavList><Link className='navlink' to={'/contacts'}>Contacts</Link></NavList>
+                        <NavList><Link className='navlink' to={'/categories'}>Catégories</Link></NavList>
                             </UlNav>
                         </Menu>
                             

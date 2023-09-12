@@ -4,7 +4,7 @@ class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phoneNumber: '',
+      phone: '',
       name: '',
       profession: '',
       region: ''
@@ -19,29 +19,29 @@ class ContactForm extends Component {
   // Méthode pour soumettre le formulaire
   handleSubmit = (e) => {
     e.preventDefault();
-    const { phoneNumber, name, profession, region } = this.state;
+    const { name, phone, profession, region } = this.state;
 
     // Appeler l'API pour créer un nouveau contact client
     // Remplacez la fonction fetch par votre logique d'appel API
 
-    fetch('http://localhost:3000/contacts', {
+    fetch('http://127.0.0.1:3000/contacts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ phoneNumber, name, profession, region })
+      body: JSON.stringify({ name, phone, profession, region })
     })
     .then(response => response.json())
     .then(data => {
       console.log('Nouveau contact client créé :', data);
       // Réinitialiser les champs de saisie après la création
-      this.setState({ phoneNumber: '', name: '', profession: '', region: '' });
+      this.setState({ phone: '', name: '', profession: '', region: '' });
     })
     .catch(error => console.error('Erreur lors de la création du contact client :', error));
   }
 
   render() {
-    const { phoneNumber, name, profession, region } = this.state;
+    const { phone, name, profession, region } = this.state;
 
     return (
       <div>
@@ -49,9 +49,9 @@ class ContactForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            name="phoneNumber"
+            name="phone"
             placeholder="Numéro de téléphone"
-            value={phoneNumber}
+            value={phone}
             onChange={this.handleInputChange}
           />
           <input

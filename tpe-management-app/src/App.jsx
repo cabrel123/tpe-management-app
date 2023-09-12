@@ -7,6 +7,7 @@ import Error from './Pages/Error/Error'
 import AdminLogin from './pages/Login/Login'
 import ContactList from './components/ContactList'
 import AdminDashboard from './pages/Admin/AdminDashboard'
+import CategoryList from './components/CategoryList'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='/login' element={<AdminLogin />} />
           <Route path='/dashboard' element={<AdminDashboard />} />
           <Route path='/contacts' element={<ContactList />} />
+          <Route path='/categories' element={<CategoryList />} />
           <Route path='*' element={<Error />} />
         </Routes>
         <Footer />

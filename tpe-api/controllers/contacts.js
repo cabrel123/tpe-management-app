@@ -1,8 +1,12 @@
-const contactData = {
-	name: ['Alino', 'Patrick'],
-	phoneNumber: ['655223300', '655998822'], 
-	profession: ['doctor', 'programmeur'],
-	region: ['Ouest','Sud']
+const contactData = require('../models/Contacts')
+
+function getContact() {
+	return contactData.map(({ name, phoneNumber, profession, region }) => ({
+		name,
+		phoneNumber, 
+		profession, 
+		region
+	}))
 }
 
-module.exports = { contactData }
+module.exports = getContact
