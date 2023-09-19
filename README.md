@@ -10,3 +10,7 @@ Bienvenue sur l'application TPE MANAGEMENT APP développée en React Pour ce pro
 
 2) Configuration API REST
 j'ai utlisé ici Express pour le coté serveur API avec une base de données mongoDB
+
+3) Compte admin démo
+Username : admin
+Password : admin2020
