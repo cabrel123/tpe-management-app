@@ -1,4 +1,4 @@
-Bienvenue sur l'application TPE MANAGEMENT APP développée en React Pour ce projet j'ai utilisé l'utilitaire pnmp+vite dont les étapes pour lancer l'application dans votre environement sont les suivantes :
+Bienvenue sur l'application TPE MANAGEMENT APP développée en React Pour ce projet j'ai utilisé l'utilitaire pnpm+vite dont les étapes pour lancer l'application dans votre environement sont les suivantes :
 
 1) Installation et configuration
 - pnpm create vite
