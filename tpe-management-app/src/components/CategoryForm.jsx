@@ -33,6 +33,7 @@ class CategoryForm extends Component {
       console.log('Nouvelle catégorie créée :', data);
       // Réinitialiser le champ de saisie après la création
       this.setState({ categoryName: '' });
+      setTimeout(function () { window.location.reload() }, 1000);
     })
     .catch(error => console.error('Erreur lors de la création de la catégorie :', error));
   }
@@ -42,8 +43,9 @@ class CategoryForm extends Component {
 
     return (
       <div>
-        <h2>Formulaire de Catégorie</h2>
-        <form onSubmit={this.handleSubmit}>
+        <h2 className='text-center color-white'>Formulaire de création des Catégories de TPE</h2>
+        <div className="form">
+        <form className="login-form" onSubmit={this.handleSubmit}>
           <input
             type="text"
             placeholder="Nom de la catégorie"
@@ -52,6 +54,7 @@ class CategoryForm extends Component {
           />
           <button type="submit">Ajouter</button>
         </form>
+      </div>
       </div>
     );
   }

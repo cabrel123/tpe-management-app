@@ -6,7 +6,7 @@ function Header()
     
  const PrimaryNav = styled.nav`
   z-index: 14;
-  display: flex;
+  display: inline-block;
   justify-content: space-between;
   padding-top: 6px;
 `
@@ -41,7 +41,7 @@ list-style-type: none;
 }
 `
 const Header = styled.header`
-background: #0d012c;
+background: #ffffff;
 position: relative;
 top: 0;
 right: 0;
@@ -58,6 +58,13 @@ justify-content: space-between!important;
     padding-right: 60px;
 `
 
+const Devman = styled.h2`
+display:inline;
+border: 1px solid gray;
+    padding: 10px;
+    border-radius: 20px;
+`
+
 
 
     return(
@@ -66,7 +73,7 @@ justify-content: space-between!important;
                 <div className='navbur'>
                     <Navi>
                         <div className='col-xl-12 d-flex align-items-center lefty'>
-                        <h5 className='devman'>TPE App <span className='blink'> _</span></h5>
+                        <Devman>TPE App Management</Devman>
                         <PrimaryNav className='navigation'>
                         
                         <Menu className='navigationmenu'>
@@ -74,7 +81,6 @@ justify-content: space-between!important;
                         <UlNav className='navlist'>
                         <NavList><Link className='navlink' to={'/'}>Accueil</Link></NavList>
                         <NavList><Link className='navlink' to={'/login'}>Connexion</Link></NavList>
-                        <NavList><Link className='navlink' to={'/dashboard'}>Admin dashboard</Link></NavList>
                         <NavList><Link className='navlink' to={'/contacts'}>Contacts</Link></NavList>
                         <NavList><Link className='navlink' to={'/categories'}>Catégories</Link></NavList>
                             </UlNav>

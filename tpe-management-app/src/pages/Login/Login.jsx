@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import '../../assets/styles/login.css';
 
 class AdminLogin extends Component {
 
@@ -21,10 +22,11 @@ class AdminLogin extends Component {
     e.preventDefault();
 
     const { username, password } = this.state;
+    //const history = useHistory();
 
     // Envoyer les informations de connexion au serveur d'authentification
     try {
-      const response = await fetch('http://localhost:8000/authentication', {
+      const response = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -35,12 +37,14 @@ class AdminLogin extends Component {
       if (response.ok) {
         const data = await response.json();
         const token = data.token;
-
+        localStorage.setItem('token', token);
+        console.log('token:'+token);
+        setTimeout(function () { window.location.replace("/dashboard") }, 1000);
         // Stocker le token JWT dans l'état local ou dans un cookie sécurisé
-        this.setState({ token, error: null });
+        this.setState({ token, error: 'Connexion réussie !' });
 
         // Rediriger l'utilisateur vers le tableau de bord de l'administrateur
-        history.push('/Admin/');
+        //history.push('/dashboard');
       } else {
         const errorData = await response.json();
         this.setState({ token: null, error: errorData.message });
@@ -56,21 +60,19 @@ class AdminLogin extends Component {
 
     return (
       <div>
-        <h2>Connexion de l&lsquo;Administrateur</h2>
+        <h2 className='text-center color-white'>Connexion</h2>
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <form onSubmit={this.handleLogin}>
-          <label>
-            Nom d&lsquo;utilisateur:
-            <input type="text" name="username" value={username} onChange={this.handleInputChange} />
-          </label>
-          <br />
-          <label>
-            Mot de passe:
-            <input type="password" name="password" value={password} onChange={this.handleInputChange} />
-          </label>
-          <br />
-          <button type="submit">Se Connecter</button>
-        </form>
+        <div className="login-page">
+          <div className="form">
+            <form className="login-form" onSubmit={this.handleLogin}>
+            <input type="text" name="username" placeholder='Nom utilisateur:' value={username} onChange={this.handleInputChange} />
+            <input type="password" name="password" placeholder='Mot de passe' value={password} onChange={this.handleInputChange} />
+              <button type="submit">Se Connecter</button>
+            </form>
+          </div>
+        </div>
+        <br/>
+        {/* <p>Vous n&lsquo;avez pas de compte ? <Link className='btn' to={'/register'}>Créer un compte</Link></p> */}
       </div>
     );
   }

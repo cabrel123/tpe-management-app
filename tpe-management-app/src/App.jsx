@@ -8,6 +8,7 @@ import AdminLogin from './pages/Login/Login'
 import ContactList from './components/ContactList'
 import AdminDashboard from './pages/Admin/AdminDashboard'
 import CategoryList from './components/CategoryList'
+import RegisterForm from './components/Register'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/dashboard' element={<AdminDashboard />} />
           <Route path='/contacts' element={<ContactList />} />
           <Route path='/categories' element={<CategoryList />} />
+          <Route path='/register' element={<RegisterForm />} />
           <Route path='*' element={<Error />} />
         </Routes>
         <Footer />

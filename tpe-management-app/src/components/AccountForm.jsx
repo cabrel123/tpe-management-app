@@ -41,8 +41,25 @@ class AccountForm extends Component {
     .then(response => response.json())
     .then(data => {
       console.log('Nouveau compte TPE créé :', data);
+      //start create customer account
+      fetch('http://127.0.0.1:3000/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ accounttype:'cli', username:email, password:'123456' })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Nouveau compte créé :', data);
+    })
+    .catch(error => console.error('Erreur lors de la création du compte :', error));
+    //end create customer account
+
       // Réinitialiser les champs de saisie après la création
       this.setState({ name: '', phone: '', email: '', categoryId: '' });
+      setTimeout(function () { window.location.reload() }, 1000);
+
     })
     .catch(error => console.error('Erreur lors de la création du compte TPE :', error));
   }
@@ -70,8 +87,9 @@ class AccountForm extends Component {
 
     return (
       <div>
-        <h2>Formulaire de Compte TPE</h2>
-        <form onSubmit={this.handleSubmit}>
+        <h2 className='text-center color-white'>Formulaire de Compte TPE</h2>
+         <div className="form">
+        <form className="login-form" onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="name"
@@ -102,6 +120,7 @@ class AccountForm extends Component {
           
           <button type="submit">Ajouter</button>
         </form>
+      </div>
       </div>
     );
   }

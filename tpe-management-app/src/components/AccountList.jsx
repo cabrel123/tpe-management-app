@@ -10,8 +10,17 @@ class AccountList extends Component {
 
   componentDidMount() {
     // Appeler l'API pour récupérer la liste des contacts
+    const token = localStorage.getItem('token');
 
-    fetch('http://127.0.0.1:3000/tpeaccounts')
+    const requestOptions = {
+        method: 'GET', // Méthode de la requête (GET, POST, PUT, etc.)
+        headers: {
+          'Authorization': `${token}`, // Ajoutez le token JWT dans l'en-tête "Authorization"
+          // Vous pouvez également spécifier d'autres en-têtes si nécessaire
+        },
+      };
+
+    fetch('http://127.0.0.1:3000/tpeaccounts', requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -38,6 +47,7 @@ class AccountList extends Component {
               <strong>Numéro de Téléphone:</strong> {tpeaccounts.phone}<br />
               <strong>E-mail:</strong> {tpeaccounts.email}<br />
               <strong>Catégorie de client:</strong> {tpeaccounts.categoryId}<br />
+              <strong>Crédit SMS du client:</strong> {tpeaccounts.balance}<br />
             </li>
           ))}
         </ul>

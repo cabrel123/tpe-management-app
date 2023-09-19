@@ -36,6 +36,7 @@ class ContactForm extends Component {
       console.log('Nouveau contact client créé :', data);
       // Réinitialiser les champs de saisie après la création
       this.setState({ phone: '', name: '', profession: '', region: '' });
+      setTimeout(function () { window.location.reload() }, 1000);
     })
     .catch(error => console.error('Erreur lors de la création du contact client :', error));
   }
@@ -45,8 +46,9 @@ class ContactForm extends Component {
 
     return (
       <div>
-        <h2>Formulaire de Contact Client</h2>
-        <form onSubmit={this.handleSubmit}>
+        <h2 className='text-center color-white'>Formulaire de Contact Client</h2>
+        <div className="form">
+        <form className="login-form" onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="phone"
@@ -77,6 +79,7 @@ class ContactForm extends Component {
           />
           <button type="submit">Ajouter</button>
         </form>
+      </div>
       </div>
     );
   }
